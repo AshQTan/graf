@@ -1,0 +1,189 @@
+/* ============================================================
+   Graf — Page Styles
+   ============================================================ */
+
+/* ── Shared page layout ──────────────────────────────────── */
+
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Placeholder page (used during scaffolding) ──────────── */
+
+.page-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding: var(--space-8);
+}
+
+.page-placeholder__icon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.page-placeholder__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.page-placeholder__description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  max-width: 400px;
+  line-height: var(--line-height-relaxed);
+}
+
+.page-placeholder__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ── Layout shell ────────────────────────────────────────── */
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.app-layout__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Navigation ──────────────────────────────────────────── */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  min-height: 60px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(15, 17, 23, 0.85);
+}
+
+.nav__logo {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: -0.025em;
+}
+
+.nav__logo span {
+  color: var(--color-primary);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  list-style: none;
+  height: 100%;
+}
+
+.nav__links li {
+  display: flex;
+  height: 100%;
+}
+
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  height: 60px;
+  padding: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px; /* Overlap nav border */
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.nav__link:hover {
+  color: var(--color-text);
+  border-bottom-color: var(--color-border);
+}
+
+.nav__link--active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* Theme toggle */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background: var(--color-bg-muted);
+  color: var(--color-text);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .nav {
+    padding: 0 var(--space-4);
+  }
+
+  .nav__links {
+    gap: var(--space-3);
+  }
+
+  .nav__link {
+    font-size: var(--font-size-xs);
+  }
+
+  .page {
+    padding: var(--space-4);
+  }
+
+  .page-placeholder {
+    padding: var(--space-6);
+  }
+}
