@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/common/Layout';
-import LandingPage from './pages/LandingPage';
 import PlaygroundPage from './pages/PlaygroundPage';
 import AuthPage from './pages/AuthPage';
 import DashboardPage from './pages/DashboardPage';
@@ -12,7 +11,7 @@ export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<PlaygroundPage />} />
         <Route path="/play" element={<PlaygroundPage />} />
         <Route path="/howto" element={<HowToPage />} />
         <Route path="/login" element={<AuthPage />} />

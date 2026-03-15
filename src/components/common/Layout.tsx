@@ -18,18 +18,18 @@ export default function Layout() {
         <ul className="nav__links">
           <li>
             <Link
-              to="/dashboard"
-              className={`nav__link ${isActive('/dashboard') ? 'nav__link--active' : ''}`}
-            >
-              Dashboard
-            </Link>
-          </li>
-          <li>
-            <Link
               to="/play"
               className={`nav__link ${isActive('/play') ? 'nav__link--active' : ''}`}
             >
               Playground
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/dashboard"
+              className={`nav__link ${isActive('/dashboard') ? 'nav__link--active' : ''}`}
+            >
+              Dashboard
             </Link>
           </li>
           <li>
