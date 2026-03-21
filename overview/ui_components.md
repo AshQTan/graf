@@ -20,7 +20,7 @@ The core interactive surface where users view and plot data.
 
 A bottom sheet (mobile) or popover (desktop) that appears when a user taps a point or drops a new one.
 
-- **Fields**: timestamp (defaults to now, editable), text note, tag chips, emoji picker, photo attachment.
+- **Fields**: timestamp (defaults to now, editable or hidden if track-over-time disabled), text note, tag chips (user-defined directly on the graph), visual marker selector (emoji or custom uploaded image), photo attachment.
 - **Radial mode**: shows a slider per spoke instead of x/y coordinates, with live polygon preview on canvas.
 - **Actions**: save, delete, backdate.
 - **Design**: minimal friction. A new point should be saveable with zero field edits (just tap and confirm).
@@ -44,7 +44,7 @@ A scrollable gallery of template cards, each showing a thumbnail preview of the 
 
 A step-by-step flow for creating a custom graph from scratch.
 
-- **Steps**: choose graph type → name axes & set labels → toggle grid snap → preview → save.
+- **Steps**: choose graph type → name axes & set labels → toggle grid snap & type-specific options (show lines, enable categories, enable timestamps for XY graphs) → preview → save.
 - Should also be accessible as an "edit" flow for existing graphs.
 
 ## 6. `ImportWizard`
@@ -58,6 +58,7 @@ A flow for importing external data.
 The user's home screen.
 
 - **`MiniGraphWidget`**: a read-only, tappable thumbnail of each active graph showing recent points.
+- **`MultiChartGrid`**: a composed workspace displaying multiple custom-selected graph canvases in a grid format.
 - **Sorting**: most recently updated first.
-- **Actions**: new graph, tap to open, long-press for archive/delete.
+- **Actions**: new graph, new view layout, tap to open, long-press for archive/delete.
 - **Insight nudge**: a small banner or card surfacing the most interesting recent insight across all graphs (e.g., "Your focus has been trending up this week 📈").

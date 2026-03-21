@@ -25,6 +25,5 @@ dist-ssr
 
 # Agent Rules
 AGENTS.md
-implementation/
 
 .vite

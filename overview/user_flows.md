@@ -11,7 +11,7 @@
 
 1. **Open app**: dashboard loads showing `MiniGraphWidget` tiles of active graphs, sorted by recency.
 2. **Tap a graph**: full `GraphCanvas` opens with existing points visible.
-3. **Drop a point**: tap the canvas. `PointInspector` slides up. Optionally type a quick note or tag.
+3. **Drop a point**: tap the canvas. `PointInspector` slides up. Optionally type a quick note, tag, or select a custom image marker.
 4. **Save**: point is committed. Canvas updates. Total interaction: **< 10 seconds**.
 5. **Insight nudge** *(optional)*: after saving, a subtle toast or banner surfaces a relevant insight: *"You've been in the high-energy quadrant 4 days in a row."*
 
@@ -20,7 +20,7 @@
 1. **Tap "New Graph"** from the dashboard.
 2. **Choose graph type**: quadrant, 2D line, radial, or timeline. Visual previews for each.
 3. **Define axes**: type labels for each axis endpoint (e.g., X: "Introverted" ↔ "Extroverted"). For radial, name each spoke.
-4. **Configure grid** *(optional)*: enable grid snapping, set divisions.
+4. **Configure rules & grid** *(optional)*: enable grid snapping, set divisions. For XY variants, optionally toggle line connections, categories, or tracking over time (timestamps).
 5. **Preview**: see the empty canvas with axes and labels rendered.
 6. **Save**: graph is created and appears on the dashboard. User is prompted to make their first entry.
 
@@ -31,6 +31,13 @@
 3. **Browse sections**: trend summary (direction + magnitude), time patterns (best/worst days), cluster summary (where points concentrate), outlier callouts.
 4. **Adjust time range**: toggle between "this week", "this month", "all time", or custom range. Insights recompute.
 5. **Tap a specific insight**: navigates back to the canvas with the relevant points highlighted or a trend line overlaid.
+
+## 5. Creating a Multi-Chart View
+
+1. **Tap "New View"** from the dashboard.
+2. **Select graphs**: choose from user's existing repository of graphs.
+3. **Select layout**: pick a grid arrangement (e.g., 2x2, vertical list).
+4. **Configure & Save**: layout is created on the dashboard alongside the mini widgets.
 
 ## 5. Importing Data
 

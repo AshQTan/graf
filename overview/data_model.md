@@ -22,6 +22,7 @@
 | `graph_type` | enum | `quadrant`, `line`, `radial`, `timeline` |
 | `axes` | JSON | Array of axis definitions (see below) |
 | `grid_config` | JSON | Snap enabled, grid divisions, etc. |
+| `plot_config` | JSON | Configurations for toggles (e.g., `show_lines`, `enable_categories`, `enable_timestamps`) |
 | `is_archived` | boolean | Soft delete / hide from dashboard |
 | `is_public` | boolean | Default `false` |
 | `template_id` | UUID? | FK → Template, if created from one |
@@ -49,13 +50,25 @@
 | `graph_id` | UUID | FK → Graph |
 | `user_id` | UUID | FK → User (who plotted this point) |
 | `coordinates` | JSON | Format varies by graph type (see Design Notes) |
-| `timestamp` | timestamp | When the point represents (defaults to creation time, user-editable) |
+| `timestamp` | timestamp? | When the point represents (defaults to creation time, user-editable). Nullable if timestamps are unenabled. |
 | `note` | text? | Optional text annotation |
-| `tags` | string[]? | Optional tags |
+| `tags` | string[]? | Optional user-defined tags attached visually |
 | `emoji` | string? | Optional emoji marker |
-| `photo_url` | string? | Optional photo attachment |
+| `photo_url` | string? | Optional photo attachment (metadata content) |
+| `marker_image_url` | string? | Optional explicitly-selected custom marker image to render the point |
 | `source` | enum | `manual`, `csv_import`, `excel_import` |
 | `created_at` | timestamp | When the point was actually created in the system |
+
+### MultiChartView
+| Field | Type | Notes |
+|-------|------|-------|
+| `id` | UUID | Primary key |
+| `owner_id` | UUID | FK → User |
+| `title` | string | Dashboard view name |
+| `grid_layout` | JSON | Layout configuration dimensions (e.g. 2x2, list) and slot mapping |
+| `graph_ids` | UUID[] | Array of FK → Graph ids displayed in this view |
+| `created_at` | timestamp | |
+| `updated_at` | timestamp | |
 
 ### Template
 | Field | Type | Notes |
@@ -98,6 +111,7 @@
 ```
 User 1──* Graph          (a user owns many graphs)
 User 1──* Point          (a user creates many points)
+User 1──* MultiChartView (a user owns many multi-chart views)
 Graph 1──* Point         (a graph contains many points)
 Template 1──* Graph      (a template can spawn many graphs)
 Graph 1──* Collaboration (a graph can have many collaborators)  [post-V1]

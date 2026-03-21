@@ -4,19 +4,27 @@
 
 ### Graph Types
 - **Quadrant** — 2D canvas with four labeled quadrants (e.g., mood trackers, alignment charts). The default and most distinctive layout.
-- **2D Line** — traditional time-series line graph with a quantitative or qualitative Y-axis and time on the X-axis.
+- **2D Line / XY** — traditional scatter or time-series line graph with quantitative or qualitative axes. Includes configuration toggles for:
+  - **Show Lines**: optionally connect points chronologically with a continuous path.
+  - **Enable Categories**: support multiple categories/tags of points on a single chart.
+  - **Enable Timestamps**: track points over time (enabled allows date/time stamps, disabled functions purely as a scatter plot).
 - **Radial** — circular layout where axes radiate outward from a center point (e.g., a "life wheel" with spokes for health, career, relationships, creativity). Good for holistic self-assessment.
 - **1D Timeline** — single-axis tracking over time. Simplest format.
 
 ### Axis Configuration
 - Labels can be numerical (0–10), categorical ("Low / Medium / High"), or vibe-based ("Silly → Serious").
 - Users define labels for each end of each axis. The system maps the full axis range to a normalized coordinate space internally.
+- **Maximum Values & Out-of-bounds**: Users can set a maximum value for numerical axes (e.g., 1-10), forming the default grid. However, for comedic or practical effect, points can be freely plotted *beyond* these maximum values. The canvas will automatically resize and scale to accommodate these out-of-bounds points.
 
 ### Plotting
 - **Freeform drop**: click or tap anywhere on the canvas to place a point. No form required.
+- **Manual entry**: alternatively, use the "Add Point" button to manually input coordinate values.
+- **Drag & Resize**: dragging an existing point past the current canvas boundaries will seamlessly resize and shift the graph limits to accommodate the move.
+- **Undo/Redo**: full undo and redo support for adding, deleting, and moving points.
 - **Grid snapping**: optional, off by default. When enabled, points snap to a configurable grid.
-- **Rich metadata**: each point can carry a text note, tags, an emoji, or a photo attachment.
-- **Timestamps**: points default to the current date/time. Users can backdate or set a specific timestamp.
+- **Rich metadata**: each point can carry a text note, tags (user-defined directly on the graph), an emoji, or a photo attachment.
+- **Custom Markers**: users can select a specific aesthetic marker for an individual point, including uploading their own image to serve as the marker.
+- **Timestamps**: enabled by default (for tracking over time). Users can backdate or set a specific timestamp. If timestamps are disabled for the graph, points are fundamentally untimestamped scatter data.
 
 ---
 
@@ -59,7 +67,14 @@ Even on vibe-based graphs, every point has a concrete position on the canvas. Th
 
 ---
 
-## 4. Data Import
+## 4. Customization
+
+- **Font type**: users can change the font used for graph titles, axis labels, and point notes.
+- **Color schemes**: users can select custom colors for the graph axes, grid lines, and data points.
+
+---
+
+## 5. Data Import
 
 - **CSV import**: upload a CSV file and map columns to axes, timestamps, notes, and tags.
 - **Excel import**: same mapping flow, supporting `.xlsx` files.
@@ -68,7 +83,7 @@ Even on vibe-based graphs, every point has a concrete position on the canvas. Th
 
 ---
 
-## 5. Accounts & Dashboard
+## 6. Accounts & Dashboard
 
 - **Dashboard**: home screen showing miniature previews of all active graphs, sorted by most recently updated.
 - **History**: filter any graph's points by date range. Compare time windows side-by-side (e.g., "this week vs. last week").
@@ -76,10 +91,18 @@ Even on vibe-based graphs, every point has a concrete position on the canvas. Th
 
 ---
 
-## 6. Social & Collaboration *(Post-V1)*
+## 7. Multi-Chart Views
 
-Designed into the data model now, but not built for V1.
+- **Custom Dashboards**: users can select a number of graphs to assemble into a customized workspace.
+- **Grid Layout**: specify the grid layout dimension (e.g., 2×2, 3×1) to display the selected charts.
+- **Individual Configuration**: charts within a grid can be configured and interacted with individually without affecting the underlying shared template.
 
-- **Read-only sharing**: generate a shareable link or export a graph as an image.
-- **Async multiplayer**: invite others to plot on a shared graph. Each contributor gets a distinct marker color. Updates appear after submission, not in real-time.
+---
+
+## 8. Social & Collaboration
+
+Designed into the data model now.
+
+- **Read-only sharing**: generate a shareable link or easily export a graph as an image (or to social media) via the "Share" button. Current focus for V1.
+- **Async multiplayer *(Post-V1)***: invite others to plot on a shared graph. Each contributor gets a distinct marker color. Updates appear after submission, not in real-time.
 - **Privacy first**: all graphs private by default. Sharing requires explicit opt-in per graph.
