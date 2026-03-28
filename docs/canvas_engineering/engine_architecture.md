@@ -149,6 +149,12 @@ Option A is simpler to build and more precise. Option B is more interactive but 
 - Pan is bounded to keep at least part of the graph visible.
 - On mobile, pinch gesture maps to zoom; two-finger drag maps to pan.
 
+### Interactive Axis Adjustment
+- **Endpoints & Origin**: The graph engine renders invisible (or subtly indicated) hit areas on the endpoints of each axis and the origin point.
+- **Dragging**: When a user drags an endpoint, the renderer's `computeLayout()` is updated to recalculate the scale and rotation of the axes relative to the new pixel position.
+- **Origin shift**: Dragging the origin point translates the entire coordinate system within the viewport.
+- **Normalization update**: While internal point storage remains normalized `[0, 1]`, the display-layer mapping (mapping normalized coordinates to pixel values) is adjusted based on the new axis geometry.
+
 ### Point Inspection
 - Tapping an existing point (or polygon on radial) opens the `PointInspector` with that point's data.
 - The point briefly scales up (micro-animation) to confirm selection.
